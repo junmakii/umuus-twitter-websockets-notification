@@ -198,13 +198,16 @@ class Data(BaseModel):
 class UmuusTwitterWebsocketsNotification(object):
     host = attr.ib('0.0.0.0')
     port = attr.ib(8024)
+    interval = attr.ib(20)
     twitter_config = attr.ib(None, converter=lambda _: json.load(open(_)))
     twitter_auth = attr.ib(None)
     twitter_api = attr.ib(None)
     connections = attr.ib(factory=lambda: set())
     timelines = attr.ib([
-        'junmakii/news-en', 'ftraversin/python-universe',
-        'joncutrer/python-developers'
+        'junmakii/news-en',
+        'ftraversin/python-universe',
+        'joncutrer/python-developers',
+        'JMChapaZam//python-it-ai',
     ],
                         converter=lambda _: [i.split('/', 1) for i in _])
     database_file = attr.ib('/tmp/' + os.path.basename(__file__) + '.sqlite')
@@ -253,7 +256,7 @@ class UmuusTwitterWebsocketsNotification(object):
                     for connection in self.connections:
                         await asyncio.wait(
                             [connection.send(self.to_json(item))])
-            await asyncio.sleep(20)
+            await asyncio.sleep(self.interval)
 
     def to_json(self, item):
         return json.dumps({
