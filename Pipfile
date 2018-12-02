@@ -1,0 +1,20 @@
+
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+
+pytest-runner = "*"
+
+[packages]
+
+fire = "*"
+attrs = "*"
+addict = "*"
+requests = "*"
+jmespath = "*"
+tweepy = "==3.7.0"
+peewee = "*"
+websockets = "*"

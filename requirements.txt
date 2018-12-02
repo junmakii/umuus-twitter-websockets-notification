@@ -1,0 +1,8 @@
+fire
+attrs
+addict
+requests
+jmespath
+tweepy==3.7.0
+peewee
+websockets
