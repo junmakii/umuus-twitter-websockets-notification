@@ -207,7 +207,7 @@ class UmuusTwitterWebsocketsNotification(object):
         'junmakii/news-en',
         'ftraversin/python-universe',
         'joncutrer/python-developers',
-        'JMChapaZam//python-it-ai',
+        'JMChapaZam/python-it-ai',
     ],
                         converter=lambda _: [i.split('/', 1) for i in _])
     database_file = attr.ib('/tmp/' + os.path.basename(__file__) + '.sqlite')
